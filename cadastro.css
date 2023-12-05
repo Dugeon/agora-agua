@@ -1,0 +1,13 @@
+form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 16rem;
+}
+
+form .btn-form {
+    align-self: flex-end;
+    font-size: 18px;
+    color: white;
+    font-weight: bold;    
+}
