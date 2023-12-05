@@ -1,0 +1,206 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    --low-opacity-bg: #96bec4af;
+} 
+
+body {
+    background-image: url("img/BG.jpg");
+    background-size: cover;
+    font-family:'Bebas Neue', cursive;
+    height: 100vh;
+}
+
+main {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    align-items: flex-start;
+    justify-content: space-around;
+}
+
+#logo {
+    width: 24em;
+    
+}
+
+.container-wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    height: 70%;
+    justify-content: space-between;
+}
+   
+#aside {
+    height: 100%;
+    width: 40%;
+    display: flex;
+    justify-content: center;
+}
+
+#aside-logo {
+    background-color: white;
+    padding: 4rem;
+    display: flex;
+    align-items: center;
+    opacity: 0.88;   
+}
+
+#aside-logo a {
+    object-fit: contain;
+}
+
+#menu {
+    
+    padding: 10px;
+    background-color: var(--low-opacity-bg);
+    border-radius: 14px ;
+    margin-top: 4rem;
+}
+
+#menu .nav-items {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#menu .nav-items li {
+    list-style:none;
+}
+
+#menu .nav-items li a {
+    text-decoration: none;
+    font-style: none;
+    color: white;
+    letter-spacing: 1px;
+    transition: opacity border 400ms ease-in-out;
+    font-size: 24px;
+}
+
+#menu .nav-items li a:hover {
+    opacity: 0.78;
+    border-bottom: 1px white solid
+}
+
+.botoes {
+    font-size: 50px;
+    line-height: 1.5;
+    width: 15%;
+    height: 100px;
+    display:flex;
+    align-items: center;
+    justify-content: space-around;
+    display: flex;
+    justify-content: space-around; 
+    align-items: flex-start;    
+    background-color: #bbdefb;
+    height: 100%;
+    padding: 15px;
+    gap: 5px;
+}
+
+.nav > div {
+    background: #ffecb3;
+    border: 3px solid #ffcc80;
+    border-radius: 5px;
+    padding: 8px;
+}
+
+.link {
+    align-self:auto;
+}
+
+
+.input-section {
+    display: flex;
+    justify-content: space-between;
+    
+}
+
+#content {
+    border-radius: 1.5em;
+    padding: 2em;
+    background-color: white;
+    opacity: calc(90%);
+}
+
+#content-title {
+    font-family:'Bebas Neue', cursive;
+    font-size: 1.9em;
+    margin-bottom: 24px;
+    text-align: center;
+}
+
+input {
+    text-align:left;
+    border-radius: 1.5em;
+    width: 80%;
+    height: 2.5em;
+    text-decoration:solid;
+    color: white;
+    background-color: #9ab8c7;
+    border: none;
+    font-size: 24px;
+    font-weight: bold;
+    padding: 10px;
+    outline: none;
+    border: 3px solid #9ab8c7;
+    transition: border-color 400ms;
+}
+
+input:focus {
+    border-color: #2b6785;
+}
+
+input::placeholder {
+    color: white;
+    opacity: 1;
+}
+
+input::-ms-input-placeholder {
+    color: white;
+    opacity: 1;
+}
+
+.btn {
+    opacity: calc(100%);
+    border-radius: 1.5em;
+    padding: 0.7em;
+    background-color: #9ab8c7;
+    border: none;
+    cursor: pointer;
+    transition: background 400ms;
+}
+
+.btn:hover {
+    background-color: #2a6481;
+}
+
+#img-botao-pesquisa {
+    width: 3em;
+}
+
+footer {
+    background-color: var(--low-opacity-bg);
+    color: white;
+    text-align:center;
+    border-radius: 14px;
+    padding: 8px 14px;
+    letter-spacing: 1px;   
+}
+
+footer h3 {
+    font-weight: 400;
+}
+
+.about-us-text {
+    font-size: 1.5rem;
+    text-align: left;
+}
+
+.blue-highligth {
+    font-size: 1.5rem;
+    color: rgb(19, 19, 182);
+}
