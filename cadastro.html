@@ -1,102 +1,86 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>AGORA ÁGUA</title>
-        <link rel="stylesheet" href="style.css">
-        <link rel="stylesheet" href="cadastro.css">
-        <link rel="icon" href="img/favicon.ico">
-        <link rel="preconnect" href="https://fonts.googleapis.com">
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet"> 
-        <script
-            src="https://code.jquery.com/jquery-3.6.1.min.js"
-            integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
-            crossorigin="anonymous">
-        </script>
-        <script 
-            src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js" 
-            integrity="sha512-pHVGpX7F/27yZ0ISY+VVjyULApbDlD0/X0rgGbTqCE7WFW5MezNTWG/dnhtbBuICzsd0WQPgpE4REBLv+UqChw==" 
-            crossorigin="anonymous" referrerpolicy="no-referrer">
-        </script>
-    </head>
-    <body>
-        <main>
-            <div id="aside">
-                <div id="aside-logo">
-                    <img id="logo" src="img/Logo - 300ppi.png" alt="Logotipo Agora Água">
-                </div>
-            </div>
-            <div class="container-wrapper"> 
-                <nav id="menu">
-                    <ul class="nav-items">
-                        <li><a href="index.html">PÁGINA INICIAL</a></li>
-                        <li><a href="cadastro.html">CADASTRO</a></li>
-                        <li><a href="sobre.html">SOBRE</a></li>
-                        <li><a href="dicas.html">DICAS</a></li>
-                    </ul>
-                </nav>
-                <div id="container" style="padding-top: 150px;">
-                    <div id="content">
-                        <p id="content-title">FAÇA SEU CADASTRO PARA RECEBER ATUALIZAÇÕES SOBRE O ABASTECIMENTO DA SUA LOCALIDADE</p>
-                        <form>
-                            <input type="text" placeholder="Nome" id="nome" >
-                            <input type="text" maxlength="15" placeholder="(XX) 9XXXX-XXXX" id="telefone" >
-                            <input type="text" maxlength="9" placeholder="Digite seu CEP" id="CEP" >
-                            <button type="submit" class="btn btn-form">Enviar</button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </main>
-        <script type="text/javascript">
-            $(document).ready(function(){
-                $('#CEP').mask('00000-000');
-                $('#telefone').mask('(00) 90000-0000');
-            });
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AGORA ÁGUA</title>
 
-            // Criar uma função para converter os dados em formato CSV
-            function toCSV(data) {
-                var csv = "";
-                for (var i = 0; i < data.length; i++) {
-                    csv += data[i].join(",") + "\n";
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="cadastro.css">
+    <link rel="icon" href="img/favicon.ico">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet"> 
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.min.js" integrity="sha512-pHVGpX7F/27yZ0ISY+VVjyULApbDlD0/X0rgGbTqCE7WFW5MezNTWG/dnhtbBuICzsd0WQPgpE4REBLv+UqChw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+<body>
+    <main>
+        <div id="aside">
+            <div id="aside-logo">
+                <img id="logo" src="img/Logo - 300ppi.png" alt="Logotipo Agora Água">
+            </div>
+        </div>
+        <div class="container-wrapper"> 
+            <nav id="menu">
+                <ul class="nav-items">
+                    <li><a href="index.html">PÁGINA INICIAL</a></li>
+                    <li><a href="cadastro.html">CADASTRO</a></li>
+                    <li><a href="sobre.html">SOBRE</a></li>
+                    <li><a href="dicas.html">DICAS</a></li>
+                </ul>
+            </nav>
+            <div id="container" style="padding-top: 150px;">
+                <div id="content">
+                    <p id="content-title">FAÇA SEU CADASTRO PARA RECEBER ATUALIZAÇÕES SOBRE O ABASTECIMENTO DA SUA LOCALIDADE</p>
+                    <form id="cadastroForm">
+                        <input type="text" placeholder="Nome" id="nome">
+                        <input type="text" maxlength="15" placeholder="(XX) 9XXXX-XXXX" id="telefone">
+                        <input type="text" maxlength="9" placeholder="Digite seu CEP" id="CEP">
+                        <input type="text" maxlength="50" placeholder="Digite seu Email" id="email">
+                        <button type="button" class="btn btn-form" onclick="enviarCadastro()">Cadastrar</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+    <script type="text/javascript">
+        function enviarCadastro() {
+            var nome = document.getElementById("nome").value;
+            var telefone = document.getElementById("telefone").value;
+            var CEP = document.getElementById("CEP").value;
+            var email = document.getElementById("email").value;
+            var data = {
+                nome: nome,
+                telefone: telefone,
+                CEP: CEP,
+                email: email
+            };
+
+            fetch('/BackEnd/cadastro', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(data)
+            })
+            .then(response => {
+                if (!response.ok) {
+                    throw new Error('Erro ao enviar os dados');
                 }
-                return csv;
-            }
-
-            // Criar uma função para baixar o arquivo CSV
-            function downloadCSV(csv, filename) {
-                var blob = new Blob([csv], {type: "text/csv"});
-                var link = document.createElement("a");
-                link.href = URL.createObjectURL(blob);
-                link.download = filename;
-                link.click();
-            }
-
-            // Selecionar o formulário e o botão de enviar
-            var form = document.querySelector("form");
-            var button = document.querySelector(".btn-form");
-
-            // Adicionar um evento de clique ao botão
-            button.addEventListener("click", function(event) {
-                // Prevenir o comportamento padrão do formulário
-                event.preventDefault();
-                // Obter os valores dos inputs
-                var nome = document.getElementById("nome").value;
-                var telefone = document.getElementById("telefone").value;
-                var CEP = document.getElementById("CEP").value;
-                // Criar um array com os dados
-                var data = [["Nome", "Telefone", "CEP"], [nome, telefone, CEP]];
-                // Converter os dados em CSV
-                var csv = toCSV(data);
-                // Baixar o arquivo CSV com o nome "cadastro.csv"
-                downloadCSV(csv, "cadastro.csv");
+                return response.json();
+            })
+            .then(data => {
+                console.log('Dados enviados com sucesso:', data);
+            })
+            .catch(error => {
+                console.error('Erro:', error);
             });
-        </script>
-    </body>
-    <footer >
-        <h3>TODOS OS DIREITOS RESERVADOS AO GRUPO AGORA ÁGUA</h3>
-    </footer>
+        }
+    </script>
+</body>
+<footer>
+    <h3>TODOS OS DIREITOS RESERVADOS AO GRUPO AGORA ÁGUA</h3>
+</footer>
 </html>

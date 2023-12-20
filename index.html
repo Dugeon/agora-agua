@@ -34,19 +34,83 @@
                         <p id="content-title">Digite seu CEP para consultar o abastecimento da sua residência.</p>
                         <section class="input-section">
                             <input type="text" maxlength="9" placeholder="Digite seu CEP" id="caixa-pesquisa">
-                            <button class="btn" type="button"><img id="img-botao-pesquisa" src="img/search-ico.png"></button>
+                            <button class="btn" type="button" onclick="consultarCSV()"><img id="img-botao-pesquisa" src="img/search-ico.png"></button>
                         </section>
                     </div>
+                </div>
+                <div id="result">
+                    <table id="result-table">
+                        <thead>
+                            <tr>
+                                <th>CEP</th>
+                                <th>Domingo</th>
+                                <th>Segunda</th>
+                                <th>Terça</th>
+                                <th>Quarta</th>
+                                <th>Quinta</th>
+                                <th>Sexta</th>
+                                <th>Sábado</th>
+                            </tr>
+                        </thead>
+                        <tbody id="result-body">
+                        </tbody>
+                    </table>
                 </div>  
             </div> 
         </main>
-        <script type="text/javascript">
-            $(document).ready(function(){
-                $('#caixa-pesquisa').mask('00000-000');
-            });
-        </script>
-    </body>
     <footer >
         <h3>TODOS OS DIREITOS RESERVADOS AO GRUPO AGORA ÁGUA</h3>
     </footer>
+    <script>
+
+        $(document).ready(function(){
+            $('#caixa-pesquisa').mask('00000-000');
+        });
+
+        function consultarCSV() {
+            const cepDigitado = document.getElementById('caixa-pesquisa').value;
+
+            // Primeiro número do CEP digitado
+            const primeiroNumeroDigitado = cepDigitado.charAt(0);
+
+            const dataFromCSV = [
+                ["CEP", "Domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado"],
+                ["00000-000", false, true, true, false, true, false, true],
+                ["10000-000", false, false, true, true, true, true, false],
+                ["20000-000", false, false, true, false, true, false, true],
+                ["30000-000", true, false, true, true, false, false, false],
+                ["40000-000", true, false, false, false, false, false, false],
+                ["50000-000", true, false, false, false, true, true, false],
+                ["60000-000", false, true, false, true, true, true, true],
+                ["70000-000", true, true, true, false, true, false, false],
+                ["80000-000", false, false, true, true, false, false, true],
+                ["90000-000", false, true, true, true, false, true, true]
+            ];
+
+            const resultBody = document.getElementById('result-body');
+            resultBody.innerHTML = '';
+
+            dataFromCSV.forEach(row => {
+                const cepDoCSV = row[0];
+                const primeiroNumeroCSV = cepDoCSV.charAt(0);
+
+                if (primeiroNumeroCSV === primeiroNumeroDigitado) {
+                    const tableRow = document.createElement('tr');
+                    row.forEach((value, index) => {
+                        const cell = document.createElement(index === 0 ? 'th' : 'td');
+                        cell.textContent = index === 0 ? cepDigitado : value ? 'com' : 'sem';
+                        if (index !== 0) {
+                            cell.style.backgroundColor = value ? 'green' : 'red';
+                        }
+                        tableRow.appendChild(cell);
+                    });
+                    resultBody.appendChild(tableRow);
+                }
+            });
+
+            const resultTable = document.getElementById('result');
+            resultTable.style.display = 'block';
+        }
+    </script>
+</body>
 </html>
